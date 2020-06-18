@@ -18,6 +18,7 @@ def get_dna_info(sequence, window_size, base_list):
 def display_dna_info(sequence, window_size, base_list):
     base_content_list = get_dna_info(sequence, window_size, base_list)
     
+    plt.rcParams['figure.figsize'] = [9.0, 4.0]
     plt.plot(base_content_list)
     plt.xlabel('Start Sequence Index')
     plt.ylabel('% Content of ' + base_list)
