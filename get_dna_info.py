@@ -24,17 +24,16 @@ def display_dna_info(sequence, window_size, base_list):
     plt.ylabel('% Content of ' + base_list)
     plt.show()
 
-dna_sequence = "gtatgacagtgaatgtgcgatactcatcttgtaaaaaagctataagagctatttgagattctttattgttaatctacttaaaaaaaattc \
-tgcttttaaacttttacatcatataacaataatttttttctacatgcatgtgtatat.aaaaggaaactatattacaaagtacacatggat \
-tttttttcttaattaatgaccatgtgacttcattttggttttaaaataggtatatagaatcttaccacagttggtgtacaggacattcat \
-ttataataaacttatatcagtcaaattaaacaaggatagtgctgctattactaaaggtttctctgggttcccaaatgatacttgaccaaa \
-tttgtccctttggcttgttgtcttcagacaccctttcttcatgtgttggagctgccatttcgtgtgcccccaaactctacttgagctgtt \
-agggaatcacattttgcagtgacagccttagtgtgggtgcattttcaggcaatactttttcagtatatttctgctttgtagattattagc \
-taaatcaagtcacataaacttccttaatttagatacttgaaaaaattgtcttaaaagaaaatttttttagtaagaattaatttagaatta \
-gccagaaaactcccagtggtagccaagaaagaggaataaatattggtggtaattttttaagttcccatctctggtagccaagtaaaaaaa \
-gagggtaactcattaataaaataacaaatcatatctattcaaagaatggcaccagtgtgaaaaaaagctttttaaccaatgacatttgtg \
-atatgattattctaatttagtctttttcaggtacaagatattatgaaattacattttgtgtttatgttatttgcaatgttttctatggaa \
-atatttcacag"
+dna_sequence = ""
+with open('dna_sequence.txt') as sequence_file:
+    raw_sequence = sequence_file.read()
+    raw_sequence = raw_sequence.upper()
+    for c in raw_sequence:
+        if c in "ATGC":
+            dna_sequence += c
+    print(dna_sequence)
+    sequence_file.close()
+
 window_size = 10
 
 print(display_dna_info(dna_sequence, window_size, "GC"))
